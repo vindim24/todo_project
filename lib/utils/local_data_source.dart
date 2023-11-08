@@ -13,7 +13,7 @@ class LocalDataSource{
     if (jsonTodoList != null && jsonTodoList.isNotEmpty) {
       return todos = jsonDecode(jsonTodoList) as List<Todo>;
     } else {
-      throw Exception("Cache Exception");
+      return todos;
     }
 
   }
