@@ -10,7 +10,8 @@ class TodoListCubit extends Cubit<TodoListState> {
 
   LocalDataSource _localDataSource = LocalDataSource();
 
-  TodoListCubit() : super(TodoListState.initial());
+  TodoListCubit() : super(TodoListState(todos: []));
+
 
   void addTodo(String todoDesc){
     final newTodo = Todo(desc: todoDesc);
