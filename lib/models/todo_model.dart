@@ -17,6 +17,10 @@ class Todo {
       : this.id = id ?? uuid.v4();
 
 
+  Map<String, dynamic> toJson() => {'id': id, 'desc': desc, 'completed' : completed};
+
+  Todo.fromJson(Map<String, dynamic> json) : id = json['id'], desc = json['desc'], completed = json['completed'];
+
   @override
   String toString() {
     return 'Todo{id: $id, desc: $desc, completed: $completed}';

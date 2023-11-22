@@ -11,7 +11,7 @@ class LocalDataSource{
     final SharedPreferences pref = await SharedPreferences.getInstance();
     final jsonTodoList = pref.getString('cached_todos');
     if (jsonTodoList != null && jsonTodoList.isNotEmpty) {
-      return todos = jsonDecode(jsonTodoList) as List<Todo>;
+      return todos = Todo.fromJson(json.decode(jsonTodoList)) as List<Todo>;
     } else {
       return todos;
     }
@@ -21,7 +21,7 @@ class LocalDataSource{
   Future<void> setTodoToCache(List<Todo> todos) async {
     final SharedPreferences pref = await SharedPreferences.getInstance();
 
-    pref.setString('cached_todos', jsonEncode(todos));
+    pref.setString('cached_todos', json.encode(todos));
     print('Todos to write Cache: ${todos.length}');
   }
 
