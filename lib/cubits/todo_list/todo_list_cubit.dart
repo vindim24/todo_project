@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
 
 import '../../models/todo_model.dart';
 import '../../utils/local_data_source.dart';
@@ -10,7 +9,7 @@ class TodoListCubit extends Cubit<TodoListState> {
 
   LocalDataSource _localDataSource = LocalDataSource();
 
-  TodoListCubit() : super(TodoListState(todos: []));
+  TodoListCubit() : super(TodoListState.initial());
 
 
   void addTodo(String todoDesc){

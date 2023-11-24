@@ -11,7 +11,7 @@ class ShowTodos extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final todos = context.watch<FilteredTodosCubit>().state.filteredTodos;
-    return ListView.separated(
+    return ListView.builder(
         primary: false,
         shrinkWrap: true,
         itemBuilder: (BuildContext context, int index) {
@@ -26,11 +26,6 @@ class ShowTodos extends StatelessWidget {
               todo: todos[index],
               index: index,
             ),
-          );
-        },
-        separatorBuilder: (BuildContext context, int index) {
-          return Divider(
-            color: Colors.white,
           );
         },
         itemCount: todos.length);
